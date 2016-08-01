@@ -8,12 +8,10 @@ var MyComponent = React.createClass({
   render : function(){
     return (
       <div>
-      <span> {this.props.name}
-      Count : {this.state.count}
-      </span><br/>
+      <span> {this.props.name}: {this.state.count} </span><br/>
       <button type='button' onClick={this.increment}>Increment</button>
       </div>
     );
   }
 });
-ReactDOM.render(<MyComponent name='hello'/> , document.getElementById('container'));
+ReactDOM.render(<MyComponent name='Count'/> , document.getElementById('container'));
