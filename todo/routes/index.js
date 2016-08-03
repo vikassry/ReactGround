@@ -14,4 +14,8 @@ router.get('/todo', function(req, res, next) {
   res.render('todo', { title: 'TODO' });
 });
 
+router.get('/realtime', function(req, res, next) {
+  res.render('realtime', { title: '' });
+});
+
 module.exports = router;
