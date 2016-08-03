@@ -4,6 +4,10 @@ var TodoComponent = React.createClass({
   },
   addTask : function(e){
     e.preventDefault();
+    if(!this.state.text.length){
+      alert("Can't add empty task!");
+      return;
+    }
     var allTasks = this.state.tasks.concat({text:this.state.text, id:Date.now()})
     this.setState({tasks : allTasks, text:''});
   },
