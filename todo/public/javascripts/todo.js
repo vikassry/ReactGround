@@ -4,11 +4,12 @@ var TodoComponent = React.createClass({
   },
   addTask : function(e){
     e.preventDefault();
-    if(!this.state.text.length){
+    var todo = this.state.text.trim();
+    if(isEmpty(todo)){
       alert("Can't add empty task!");
       return;
     }
-    var allTasks = this.state.tasks.concat({text:this.state.text, id:Date.now()})
+    var allTasks = this.state.tasks.concat({text:todo, id:Date.now()})
     this.setState({tasks : allTasks, text:''});
   },
   onChange : function(e){
@@ -32,3 +33,7 @@ var TodoComponent = React.createClass({
 });
 
 ReactDOM.render(<TodoComponent/>, document.getElementById('container'))
+
+var isEmpty = function(text) {
+  return text.trim().length ==0;
+}
