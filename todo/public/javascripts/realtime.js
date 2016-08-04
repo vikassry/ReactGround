@@ -1,27 +1,24 @@
 var MarkdownEditor = React.createClass({
   getInitialState: function() {
-    return {value: 'Type some *markdown* here!'};
+    return {value: 'Type some markdown here!'};
   },
-  handleChange: function() {
+  onChange: function() {
     this.setState({value: this.refs.textarea.value});
   },
   rawMarkup: function() {
     var md = new Remarkable();
-    return { __html: md.render(this.state.value) };
+    return { __html: this.state.value };
   },
   render: function() {
     return (
-      <div className="MarkdownEditor">
+      <div>
         <h3>Input</h3>
-        <textarea
-          onChange={this.handleChange}
+        <textarea rows="8" cols="80"
+          onChange={this.onChange}
           ref="textarea"
           defaultValue={this.state.value} />
         <h3>Output</h3>
-        <div
-          className="content"
-          dangerouslySetInnerHTML={this.rawMarkup()}
-        />
+        <span> {this.state.value} </span>
       </div>
     );
   }
