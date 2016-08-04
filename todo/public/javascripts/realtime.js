@@ -18,7 +18,7 @@ var MarkdownEditor = React.createClass({
           ref="textarea"
           defaultValue={this.state.value} />
         <h3>Output</h3>
-        <span> {this.state.value} </span>
+        <div dangerouslySetInnerHTML={this.rawMarkup()} />
       </div>
     );
   }
