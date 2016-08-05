@@ -31,14 +31,14 @@ var TodoComponent = React.createClass({
         </ul>
         <form onSubmit={this.addTask}>
           <input onChange={this.onChange} value={this.state.text} />
-          <button>{'Add #' + (this.state.tasks.length + 1)}</button>
+          <button>{'Add '+ '\u00b7 #' +(this.state.tasks.length + 1)}</button>
         </form>
       </div>
     );
   }
 });
 
-ReactDOM.render(<TodoComponent/>, document.getElementById('container'))
+ReactDOM.render(<TodoComponent custom="hi"/>, document.getElementById('container'))
 
 var isEmpty = function(text) {
   return text.trim().length == 0;
