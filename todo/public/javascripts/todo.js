@@ -1,5 +1,16 @@
-var TodoComponent = React.createClass({
+var TodoList = React.createClass({
+  render : function(){
+    return (
+        <ul>
+        {this.props.tasks.map(function(item){
+          return <li key={item.id}>{item.text}</li>
+        })}
+        </ul>
+      )
+  }
+});
 
+var TodoComponent = React.createClass({
   getInitialState : function(){
     return {tasks:[], text:''}
   },
@@ -21,24 +32,21 @@ var TodoComponent = React.createClass({
   },
 
   render : function(){
-    var todoList = this.state.tasks;
     return (
       <div>
-        <ul>
-        {todoList.map(function(item){
-          return <li key={item.id}>{item.text}</li>
-        })}
-        </ul>
-        <form onSubmit={this.addTask}>
-          <input onChange={this.onChange} value={this.state.text} />
-          <button>{'Add '+ '\u00b7 #' +(this.state.tasks.length + 1)}</button>
-        </form>
-      </div>
-    );
+        <TodoList tasks={this.state.tasks}/>
+          <form onSubmit={this.addTask}>
+            <input onChange={this.onChange} value={this.state.text} /> &nbsp;
+            <button>{'Add '+ '\u00b7 #' +(this.state.tasks.length + 1)}</button>
+            <p>You typed {this.state.text.length} characters. </p>
+          </form>
+        </div>
+      );
+    }
   }
-});
+);
 
-ReactDOM.render(<TodoComponent custom="hi"/>, document.getElementById('container'))
+ReactDOM.render(<TodoComponent/>, document.getElementById('container'))
 
 var isEmpty = function(text) {
   return text.trim().length == 0;
