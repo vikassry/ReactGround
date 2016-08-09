@@ -3,7 +3,7 @@ var TodoList = React.createClass({
     return (
         <ul>
         {this.props.tasks.map(function(item){
-          return <li key={item.id}>{item.text}</li>
+          return <li key={item.key}>{item.text}</li>
         })}
         </ul>
       )
@@ -22,7 +22,7 @@ var TodoComponent = React.createClass({
       alert("Can't add empty task!");
       return;
     }
-    var new_task = {text:todo, id:Date.now()};
+    var new_task = {text:todo, key:Date.now()};
     var newTasks = this.state.tasks.concat(new_task);
     this.setState({tasks : newTasks, text:''});
   },

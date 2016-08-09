@@ -3,7 +3,10 @@ extends layout
 block content
  h1 #{title}
  div#container
+  ul
+   each task in tasks
+    li(key="#{task.key}") #{task.text}
  script(src="javascripts/react.js")
  script(src="javascripts/react-dom.js")
  script(src="javascripts/babel.core.min.js")
- script(type="text/babel" src="javascripts/todo.js")
+ //script(type="text/babel" src="javascripts/todo.js")
