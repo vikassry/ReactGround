@@ -1,17 +1,20 @@
 var TodoList = React.createClass({
   render : function(){
-    console.log(this.props.tasks)
     return (
-      // </br>
+      <ul>
+        {this.props.tasks.map(function(task){
+            return <li key={task.key}>{task.text}</li>
+        })}
+      </ul>
       )
   }
 });
 
 var TodoComponent = React.createClass({
-  // getInitialState : function(){
-  //   console.log(document.getElementById("list"))
-  //   return {tasks:document.getElementById("list").children, text:''}
-  // },
+  getInitialState : function(){
+
+    return {tasks:[], text:''};
+  },
 
   addTask : function(e){
     e.preventDefault();
@@ -32,7 +35,7 @@ var TodoComponent = React.createClass({
   render : function(){
     return (
       <div>
-        <TodoList tasks={document.getElementById("list"))}/>
+        <TodoList tasks={this.state.tasks}/>
           <form onSubmit={this.addTask}>
             <input onChange={this.onChange} value={this.state.text} /> &nbsp;
             <button>{'Add '+ '\u00b7 #' +(this.state.tasks.length + 1)}</button>
