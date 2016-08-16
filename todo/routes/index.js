@@ -3,7 +3,7 @@ var router = express.Router();
 var readTasks = require('../modules/taskLoader');
 
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Welcome to React' });
+  res.render('index', { title: 'Welcome' });
 });
 
 router.get('/counter', function(req, res, next) {
