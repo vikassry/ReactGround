@@ -1,5 +1,5 @@
 var config = {
-   entry: './public/javascripts/index.js',
+   entry: './public/javascripts/todo.js',
 
    output: {
       path:'./public',

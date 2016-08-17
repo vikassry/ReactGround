@@ -1,3 +1,6 @@
+var React = require('react');
+var ReactDOM = require('react-dom');
+
 var TodoList = React.createClass({
   render : function(){
     return (
@@ -35,6 +38,7 @@ var TodoComponent = React.createClass({
   render : function(){
     return (
       <div>
+        <h1> TODO: </h1>
         <TodoList tasks={this.state.tasks}/>
           <form onSubmit={this.addTask}>
             <input onChange={this.onChange} value={this.state.text} /> &nbsp;
