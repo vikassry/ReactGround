@@ -1,5 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+require("../stylesheets/style.css");
 
 var TodoList = React.createClass({
   render : function(){
