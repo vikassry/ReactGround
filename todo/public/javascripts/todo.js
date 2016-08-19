@@ -33,7 +33,7 @@ var TodoComponent = React.createClass({
   },
 
   onChange : function(e){
-    this.setState({text : e.target.value});
+    this.setState({text : e.target.value.substr(0,30)});
   },
 
   render : function(){

@@ -1,4 +1,8 @@
 var MyComponent = React.createClass({
+  propTypes : {
+    name : React.PropTypes.string.isRequired
+  },
+
   getInitialState : function(){
     return { count : 0 }
   },
@@ -14,4 +18,4 @@ var MyComponent = React.createClass({
     );
   }
 });
-ReactDOM.render(<MyComponent name='Count'/> , document.getElementById('container'));
+ReactDOM.render(<MyComponent name="Count" /> , document.getElementById('container'));
